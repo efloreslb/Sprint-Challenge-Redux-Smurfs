@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
+import {Route, NavLink} from 'react-router-dom';
 import './App.css';
-/*
- to wire this component up you're going to need a few things.
- I'll let you do this part on your own. 
- Just remember, `how do I `connect` my components to redux?`
- `How do I ensure that my component links the state to props?`
- */
+import AddSmurf from './AddSmurf';
+import SmurfVillage from './SmurfVillage';
+
 class App extends Component {
+
   render() {
     return (
       <div className="App">
+        <nav>
+          <NavLink exact to="/" activeClassName="selected">Home</NavLink>
+          <NavLink to="/form" activeClassName="selected">Add Smurf</NavLink>
+        </nav>
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <Route exact path="/form" component={AddSmurf} />
+        <Route exact path="/" component={SmurfVillage} />
       </div>
     );
   }
