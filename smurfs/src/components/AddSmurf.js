@@ -24,7 +24,8 @@ class AddSmurf extends React.Component {
    handleSubmit = e => {
       console.log(this.state.newSmurf)
       e.preventDefault();
-      this.props.postSmurf(this.state.newSmurf);
+      this.props.postSmurf(this.state.newSmurf)
+         // .then(() => this.props.history.push('/form'));
       this.setState({
          newSmurf: {
             name: '',
@@ -32,6 +33,11 @@ class AddSmurf extends React.Component {
             age: ''
          }
       })
+
+   }
+
+   updateSmurf = e => {
+      e.preventDefault();
    }
 
    render(){
@@ -41,6 +47,7 @@ class AddSmurf extends React.Component {
             <input onChange={this.handleChange} value={this.state.newSmurf.height} name="height" placeholder="Height"/>
             <input onChange={this.handleChange} value={this.state.newSmurf.age} name="age" placeholder="Age"/>
             <button type="submit">Add Smurf</button>
+            <button onClick={this.updateSmurf}>Update Smurf</button>
          </form>
       )
    }

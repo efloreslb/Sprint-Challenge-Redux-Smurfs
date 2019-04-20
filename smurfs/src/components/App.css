@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 500px;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -26,3 +28,53 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, button {
+  margin-bottom: 3px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  text-align: left;
+  background-color: dodgerblue;
+  padding: 0px 8px;
+  margin: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete {
+  background-color: rgb(187, 58, 58);
+  height: fit-content;
+  color: #fff;
+  margin-top: 8px;
+}
+
+nav {
+  background-color: rgb(106, 169, 228);
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 1px;
+}
+
+.selected {
+  background-color: rgb(131, 48, 42);
+}
+
+
