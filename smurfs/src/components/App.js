@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import AddSmurf from './AddSmurf';
 
 import {connect} from 'react-redux';
 import {getSmurfs} from '../actions';
@@ -19,9 +20,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        {this.props.smurfs.map((smurf, index) => (
-          <li key={index}>{smurf.name}, {smurf.age}, {smurf.height}</li>
-        ))}
+        <AddSmurf />
+        <ul>
+          {this.props.smurfs.map((smurf, index) => (
+            <li key={index}>{smurf.name}, {smurf.age}, {smurf.height}</li>
+          ))}
+        </ul>
       </div>
     );
   }
