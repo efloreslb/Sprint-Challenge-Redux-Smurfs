@@ -1,6 +1,7 @@
-/*
-  Be sure to import in all of the action types from `../actions`
-*/
+import {
+  FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
+  POST_START, POST_SUCCESS, POST_FAILURE
+} from '../actions';
 
 const initialState = {
    smurfs: [],
@@ -10,7 +11,6 @@ const initialState = {
    deletingSmurf: false,
    error: null
 }
-
 
 /*
   You'll only need one smurf reducer for this project.
@@ -22,7 +22,27 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    
+    case FETCH_START: {
+      return {
+        ...state,
+        fetchingSmurfs: true,
+        error: null
+      }
+    }
+    case FETCH_SUCCESS: {
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        smurfs: action.payload
+      }
+    }
+    case FETCH_FAILURE: {
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        error: action.payload
+      }
+    }
     default:
       return state;
   }
