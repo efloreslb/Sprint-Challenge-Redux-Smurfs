@@ -3,7 +3,7 @@ import './App.css';
 import AddSmurf from './AddSmurf';
 
 import {connect} from 'react-redux';
-import {getSmurfs} from '../actions';
+import {getSmurfs, deleteSmurf} from '../actions';
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -16,6 +16,10 @@ class App extends Component {
     console.log(this.props.smurfs);
   }
 
+  deleteSmurf = id => {
+    this.props.deleteSmurf(id);
+  }
+
   render() {
     return (
       <div className="App">
@@ -23,7 +27,7 @@ class App extends Component {
         <AddSmurf />
         <ul>
           {this.props.smurfs.map((smurf, index) => (
-            <li key={index}>{smurf.name}, {smurf.age}, {smurf.height}</li>
+            <li key={index}>{smurf.name}, {smurf.age}, {smurf.height}<div onClick={() => this.deleteSmurf(smurf.id)}>X</div></li>
           ))}
         </ul>
       </div>
@@ -38,4 +42,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {getSmurfs})(App);
+export default connect(mapStateToProps, {getSmurfs, deleteSmurf})(App);
