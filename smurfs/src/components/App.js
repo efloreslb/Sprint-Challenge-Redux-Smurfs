@@ -11,7 +11,7 @@ import {getSmurfs} from '../actions';
  */
 class App extends Component {
   componentDidMount() {
-    this.props.getSmurfs;
+    this.props.getSmurfs();
     console.log(this.props.smurfs);
   }
 
@@ -19,9 +19,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        {this.props.smurfs.map((smurf, index) => (
+          <li key={index}>{smurf.name}, {smurf.age}, {smurf.height}</li>
+        ))}
       </div>
     );
   }
